@@ -1,5 +1,8 @@
 📘 Judul Proyek
+
 Klasifikasi SMS Spam dengan Deep Learning
+
+
 👤 Informasi
 •	Nama: Mukti Ali Mudlofar
 •	Repo: https://github.com/Mukti45/sms_spam_classification.git 
@@ -27,7 +30,9 @@ Goals:
 4.	✅ Menghasilkan sistem yang reproducible dengan dokumentasi lengkap 
 5.	✅ Mengidentifikasi pola dan karakteristik pesan spam vs ham melalui EDA
 ________________________________________
+
 📁 Struktur Folder
+
 sms-spam-classification/
 │
 ├── data/                           # Dataset (gitignore)
@@ -71,6 +76,7 @@ sms-spam-classification/
 ├── requirements.txt                # Dependencies
 ├── README.md                       # Dokumentasi ini
 └── main.py                         # Script utama (run all) ________________________________________
+
 3. 📊 Dataset
 Informasi Umum
 •	Sumber: UCI Machine Learning Repository 
