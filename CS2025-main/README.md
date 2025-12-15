@@ -12,6 +12,7 @@ Klasifikasi SMS Spam dengan Deep Learning
 
 ## 1. 🎯 Ringkasan Proyek
 
+```markdown
 Proyek ini mengimplementasikan sistem **klasifikasi SMS spam otomatis** menggunakan teknik *Natural Language Processing* (NLP) dan *Deep Learning*. Sistem dapat membedakan pesan spam dari pesan normal (ham) dengan akurasi tinggi.
 
 **Highlights:**
@@ -20,10 +21,8 @@ Proyek ini mengimplementasikan sistem **klasifikasi SMS spam otomatis** mengguna
 * ✅ Akurasi Terbaik: 98.93% (LSTM)
 * ✅ 4 Visualisasi EDA komprehensif
 * ✅ Complete reproducible pipeline
-
----
-
-## 2. 📄 Problem & Goals
+2. 📄 Problem & Goals
+Markdown
 
 ### Problem Statements
 1. Deteksi Otomatis: Bagaimana membuat sistem yang dapat mendeteksi pesan spam secara otomatis dengan akurasi tinggi tanpa intervensi manual?
@@ -37,12 +36,9 @@ Proyek ini mengimplementasikan sistem **klasifikasi SMS spam otomatis** mengguna
 3. ✅ Menentukan model terbaik berdasarkan metrik evaluasi (Accuracy, Precision, Recall, F1-Score)
 4. ✅ Menghasilkan sistem yang reproducible dengan dokumentasi lengkap
 5. ✅ Mengidentifikasi pola dan karakteristik pesan spam vs ham melalui EDA
+📁 Struktur Folder
+Plaintext
 
----
-
-## 📁 Struktur Folder
-
-```text
 sms-spam-classification/
 │
 ├── data/                           # Dataset (gitignore)
@@ -86,8 +82,8 @@ sms-spam-classification/
 ├── requirements.txt                # Dependencies
 ├── README.md                       # Dokumentasi ini
 └── main.py                         # Script utama (run all)
-
 3. 📊 Dataset
+Markdown
 
 ### Informasi Umum
 * Sumber: UCI Machine Learning Repository
@@ -116,3 +112,201 @@ sms-spam-classification/
 * No Duplicates: Tidak ada data duplikat
 * Language: English (UK/US)
 * Spam Patterns: Kata-kata seperti "free", "win", "call", "claim" dominan di spam
+4. 🔧 Data Preparation
+Markdown
+
+a) Data Cleaning
+* ✅ Handling missing values (tidak ada)
+* ✅ Remove duplicates (tidak ada)
+* ✅ Label encoding (ham=0, spam=1)
+
+b) Text Preprocessing
+* ✅ Lowercase: Standardisasi teks
+* ✅ Remove URLs: Hapus link
+* ✅ Remove special characters: Hanya alfabet
+* ✅ Remove numbers: Hapus angka
+* ✅ Stopwords removal: Hapus kata umum (NLTK)
+* ✅ Stemming: Porter Stemmer (reduce to root form)
+
+c) Feature Engineering
+* ✅ message_length: Panjang karakter
+* ✅ word_count: Jumlah kata
+* ✅ processed_message: Hasil final preprocessing
+
+d) Data Transformation
+* Untuk Traditional ML (Naive Bayes & Random Forest):
+    * TF-IDF Vectorization
+    * Max features: 2000-3000
+    * N-grams: (1, 2) - unigram + bigram
+* Untuk Deep Learning (LSTM):
+    * Keras Tokenizer (vocab size: 5000)
+    * Sequence padding (max length: 100)
+    * Word embedding (dimension: 128)
+
+e) Data Splitting
+* Training set: 70% (3,902 samples)
+* Validation set: 10% (557 samples)
+* Test set: 20% (1,115 samples)
+* Stratified split (mempertahankan proporsi kelas)
+* Random state: 42 (reproducibility)
+5. 🤖 Modeling
+Markdown
+
+### Model 1 – Baseline: Naive Bayes
+* Algoritma: Multinomial Naive Bayes
+* Features: TF-IDF vectorization (max_features=3000), Bigram + unigram
+* Hyperparameters: MultinomialNB(alpha=1.0)
+* Hasil:
+    * Accuracy: 98.20%
+    * Training time: ~2 seconds
+    * Model size: 500 KB
+
+### Model 2 – Advanced ML: Random Forest
+* Algoritma: Random Forest Classifier
+* Features: TF-IDF vectorization (max_features=2000), Bigram + unigram
+* Hyperparameters:
+    ```python
+    RandomForestClassifier(
+        n_estimators=100,
+        max_depth=20,
+        random_state=42
+    )
+    ```
+* Hasil:
+    * Accuracy: 97.57%
+    * Training time: ~30 seconds
+    * Model size: 15 MB
+
+### Model 3 – Deep Learning: LSTM 🏆
+* Arsitektur: Bidirectional LSTM Neural Network
+* Layer Structure:
+    1. Embedding Layer (vocab_size=5000, dim=128)
+    2. Bidirectional LSTM (64 units) + Dropout(0.3)
+    3. Bidirectional LSTM (32 units) + Dropout(0.3)
+    4. Dense(64, relu) + Dropout(0.5)
+    5. Dense(32, relu) + Dropout(0.3)
+    6. Dense(1, sigmoid)
+* Total parameters: ~786,000
+* Hyperparameters:
+    * optimizer='adam'
+    * loss='binary_crossentropy'
+    * epochs=20 (dengan early_stopping patience=5)
+* Hasil:
+    * Accuracy: 98.93% 🏆
+    * Training time: ~10 minutes
+    * Model size: 9.5 MB
+6. 🧪 Evaluation
+Markdown
+
+### Hasil Singkat
+
+| Model | Accuracy | Precision | Recall | F1-Score | Training Time |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Naive Bayes** | 0.9820 | 0.9683 | 0.9333 | 0.9505 | 2s |
+| **Random Forest** | 0.9757 | 0.9651 | 0.9150 | 0.9394 | 30s |
+| **LSTM** 🏆 | **0.9893** | **0.9862** | **0.9477** | **0.9666** | 10min |
+7. 🏁 Kesimpulan
+Markdown
+
+### Model terbaik: LSTM Deep Learning
+* Alasan:
+    * Sequential Context: Memahami urutan kata dan konteks
+    * Automatic Feature Learning: Belajar representasi optimal sendiri
+    * Bidirectional Processing: Membaca dari kedua arah
+    * Word Embeddings: Menangkap semantic similarity
+
+### Insight penting:
+* Dari Data: Spam rata-rata 2x lebih panjang dari ham (138 vs 71 karakter). Kata "free", "call", "win", "prize" adalah strong spam indicators. 86.6% ham, 13.4% spam - imbalanced tapi manageable.
+* Dari Modeling: Baseline (Naive Bayes) sudah sangat kuat: 98.2%. Deep Learning memberikan improvement signifikan meski marginal. Precision lebih penting dari recall (false positive mengganggu user).
+8. 🔮 Future Work
+Markdown
+
+### Tambah data
+* Mengumpulkan lebih banyak data (10,000+ messages)
+* Multi-language support (Indonesia, dll)
+* Real-time data collection
+
+### Tuning model
+* Transformer models (BERT, DistilBERT)
+* Ensemble methods (NB + LSTM)
+* Hyperparameter tuning extensive
+* Active learning untuk continuous improvement
+
+### Deployment
+* REST API dengan FastAPI/Flask
+* Web app dengan Streamlit
+* Mobile app integration
+* Docker containerization
+* Cloud deployment (AWS/GCP)
+
+### Optimization:
+* Model compression (TensorFlow Lite)
+* Quantization untuk mobile
+* Inference speed optimization
+9. 🔁 Reproducibility
+Requirements
+Plaintext
+
+Python Version: 3.10+
+Main Dependencies:
+pandas==2.0.3
+numpy==1.24.3
+scikit-learn==1.3.0
+tensorflow==2.13.0
+keras==2.13.1
+nltk==3.8.1
+matplotlib==3.7.2
+seaborn==0.12.2
+wordcloud==1.9.2
+joblib==1.3.2
+ucimlrepo==0.0.3
+Installation
+Bash
+
+# Clone repository
+git clone [https://github.com/Mukti45/sms-spam-classification.git](https://github.com/Mukti45/sms-spam-classification.git)
+cd sms-spam-classification
+
+# Create virtual environment (recommended)
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# atau
+venv\Scripts\activate     # Windows
+
+# Install dependencies
+pip install -r requirements.txt
+Download Dataset
+Dataset akan otomatis didownload saat menjalankan script: python main.py. Atau download manual dari: UCI ML Repository.
+
+Running the Project
+Option 1: Run Full Pipeline
+
+Bash
+
+python main.py
+Option 2: Run Individual Modules
+
+Bash
+
+# Data preprocessing
+python src/data_preprocessing.py
+# Exploratory Data Analysis
+python src/eda.py
+# Train models
+python src/train_naive_bayes.py
+python src/train_random_forest.py
+python src/train_deep_learning.py
+Option 3: Google Colab (Recommended)
+
+Plaintext
+
+* Buka notebook: notebooks/SMS_Spam_Classification_Complete.ipynb
+* Upload ke Google Colab
+* Jalankan semua cell (Runtime > Run all)
+* Estimated time: 20-25 menit
+Hardware Specifications
+Plaintext
+
+* Minimum: CPU: 2 cores, RAM: 8 GB, Disk: 5 GB free space
+* Recommended: CPU: 4+ cores, RAM: 12 GB, GPU: Optional (training lebih cepat)
+* Tested on: Google Colab (Free Tier), Local: Intel i5, 16GB RAM
