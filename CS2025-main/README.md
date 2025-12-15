@@ -27,34 +27,31 @@ Goals:
 4.	✅ Menghasilkan sistem yang reproducible dengan dokumentasi lengkap 
 5.	✅ Mengidentifikasi pola dan karakteristik pesan spam vs ham melalui EDA
 ________________________________________
-📁 Struktur Folder
+## 📁 Struktur Folder
+
+```text
 sms-spam-classification/
-│
-├── data/                           # Dataset (gitignore)
-│   ├── raw/                        # Data mentah
-│   │   └── SMSSpamCollection       # Dataset dari UCI (download otomatis)
-│   └── processed/                  # Data terproses
-│       └── processed_data.csv      # Hasil preprocessing
-│
-├── notebooks/                      # Jupyter notebooks
-│   └── SMS_Spam_Classification_Complete.ipynb  # Full pipeline
-│
-├── src/                            # Source code
+├── data/
+│   ├── raw/
+│   │   └── SMSSpamCollection
+│   └── processed/
+│       └── processed_data.csv
+├── notebooks/
+│   └── SMS_Spam_Classification_Complete.ipynb
+├── src/
 │   ├── __init__.py
-│   ├── data_preprocessing.py       # Data cleaning & preprocessing
-│   ├── eda.py                      # Exploratory Data Analysis
-│   ├── train_naive_bayes.py       # Model 1: Naive Bayes
-│   ├── train_random_forest.py     # Model 2: Random Forest
-│   └── train_deep_learning.py     # Model 3: LSTM
-│
-├── models/                         # Saved models (gitignore)
-│   ├── naive_bayes_model.pkl       # Trained Naive Bayes
-│   ├── random_forest_model.pkl     # Trained Random Forest
-│   ├── lstm_model.h5               # Trained LSTM
-│   └── lstm_tokenizer.pkl          # LSTM Tokenizer
-│
-├── results/                        # Hasil evaluasi
-│   ├── figures/                    # Visualisasi
+│   ├── data_preprocessing.py
+│   ├── eda.py
+│   ├── train_naive_bayes.py
+│   ├── train_random_forest.py
+│   └── train_deep_learning.py
+├── models/
+│   ├── naive_bayes_model.pkl
+│   ├── random_forest_model.pkl
+│   ├── lstm_model.h5
+│   └── lstm_tokenizer.pkl
+├── results/
+│   ├── figures/
 │   │   ├── 1_class_distribution.png
 │   │   ├── 2_message_length.png
 │   │   ├── 3_wordclouds.png
@@ -65,12 +62,12 @@ sms-spam-classification/
 │   │   ├── feature_importance_rf.png
 │   │   ├── lstm_training_history.png
 │   │   └── model_comparison.png
-│   └── model_comparison.csv        # Tabel perbandingan
-│
-├── .gitignore                      # Git ignore file
-├── requirements.txt                # Dependencies
-├── README.md                       # Dokumentasi ini
-└── main.py                         # Script utama (run all) ________________________________________
+│   ├── model_comparison.csv
+├── .gitignore
+├── requirements.txt
+├── README.md
+└── main.py
+```
 3. 📊 Dataset
 Informasi Umum
 •	Sumber: UCI Machine Learning Repository 
