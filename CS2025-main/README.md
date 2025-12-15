@@ -1,40 +1,42 @@
 # 📘 Klasifikasi SMS Spam dengan Deep Learning
 
-**Authors:**
-* Mukti Ali
-* Mudlofar
+**Judul Proyek**
+Klasifikasi SMS Spam dengan Deep Learning
 
-[Link Repository](https://github.com/Mukti45/sms_spam_classification.git)
+**👤 Informasi**
+* **Nama:** Mukti Ali, Mudlofar
+* **Repo:** [https://github.com/Mukti45/sms_spam_classification.git](https://github.com/Mukti45/sms_spam_classification.git)
+* **Video:** [...]
 
 ---
 
-## 🎯 Ringkasan Proyek
+## 1. 🎯 Ringkasan Proyek
 
 Proyek ini mengimplementasikan sistem **klasifikasi SMS spam otomatis** menggunakan teknik *Natural Language Processing* (NLP) dan *Deep Learning*. Sistem dapat membedakan pesan spam dari pesan normal (ham) dengan akurasi tinggi.
 
 **Highlights:**
-* ✅ **Dataset:** 5,574 SMS dari UCI Machine Learning Repository
-* ✅ **3 Model:** Naive Bayes, Random Forest, LSTM Neural Network
-* ✅ **Akurasi Terbaik:** 98.93% (LSTM)
-* ✅ **EDA:** 4 Visualisasi komprehensif
-* ✅ **Pipeline:** Complete reproducible pipeline
+* ✅ Dataset: 5,574 SMS dari UCI Machine Learning Repository
+* ✅ 3 Model: Naive Bayes, Random Forest, LSTM Neural Network
+* ✅ Akurasi Terbaik: 98.93% (LSTM)
+* ✅ 4 Visualisasi EDA komprehensif
+* ✅ Complete reproducible pipeline
 
 ---
 
-## 📄 Problem & Goals
+## 2. 📄 Problem & Goals
 
 ### Problem Statements
-1.  **Deteksi Otomatis:** Bagaimana membuat sistem deteksi spam otomatis akurasi tinggi tanpa intervensi manual?
-2.  **Kompleksitas Bahasa:** Variasi kata, singkatan, dan pola bahasa kompleks pada spam sulit diidentifikasi rule-based system.
-3.  **Imbalanced Data:** Ketidakseimbangan kelas (Ham > Spam) yang mempengaruhi performa model.
-4.  **Performa Model:** Membandingkan model tradisional ML vs Deep Learning.
+1. Deteksi Otomatis: Bagaimana membuat sistem yang dapat mendeteksi pesan spam secara otomatis dengan akurasi tinggi tanpa intervensi manual?
+2. Kompleksitas Bahasa: Pesan spam sering menggunakan variasi kata, singkatan, dan pola bahasa yang kompleks yang sulit diidentifikasi dengan rule-based system.
+3. Imbalanced Data: Dataset SMS spam umumnya memiliki ketidakseimbangan kelas (lebih banyak ham daripada spam), yang dapat mempengaruhi performa model.
+4. Performa Model: Diperlukan perbandingan antara model tradisional machine learning dan deep learning untuk menentukan pendekatan terbaik.
 
 ### Goals
-1.  ✅ Membangun model ML dengan akurasi minimal **95%**.
-2.  ✅ Membandingkan 3 pendekatan model (Baseline, Advanced, Deep Learning).
-3.  ✅ Menentukan model terbaik berdasarkan Accuracy, Precision, Recall, dan F1-Score.
-4.  ✅ Menghasilkan sistem yang reproducible.
-5.  ✅ Mengidentifikasi pola karakteristik pesan spam vs ham melalui EDA.
+1. ✅ Membangun model ML untuk mengklasifikasikan SMS spam dengan akurasi minimal 95%
+2. ✅ Mengukur dan membandingkan performa 3 pendekatan model (Baseline, Advanced, Deep Learning)
+3. ✅ Menentukan model terbaik berdasarkan metrik evaluasi (Accuracy, Precision, Recall, F1-Score)
+4. ✅ Menghasilkan sistem yang reproducible dengan dokumentasi lengkap
+5. ✅ Mengidentifikasi pola dan karakteristik pesan spam vs ham melalui EDA
 
 ---
 
@@ -85,126 +87,32 @@ sms-spam-classification/
 ├── README.md                       # Dokumentasi ini
 └── main.py                         # Script utama (run all)
 
-📊 Dataset
-Sumber: UCI Machine Learning Repository
+3. 📊 Dataset
 
-Jumlah Data: 5,574 pesan SMS
+### Informasi Umum
+* Sumber: UCI Machine Learning Repository
+* Jumlah Data: 5,574 pesan SMS
+* Distribusi:
+    * Ham (bukan spam): 4,827 (86.6%)
+    * Spam: 747 (13.4%)
+* Tipe: Text Data (Natural Language)
+* Format: TSV (Tab-Separated Values)
+* Size: 198.6 KB
 
-Distribusi:
+### Fitur Dataset
 
-Ham (normal): 4,827 (86.6%)
+| Fitur | Tipe Data | Deskripsi | Contoh |
+| :--- | :--- | :--- | :--- |
+| `label` | Binary | Label kelas (0=ham, 1=spam) | 0, 1 |
+| `message` | Text | Isi pesan SMS asli | "How are you?" |
+| `message_length` | Integer | Panjang karakter pesan | 20, 150 |
+| `word_count` | Integer | Jumlah kata | 5, 20 |
+| `cleaned_message` | Text | Teks setelah cleaning | "how are you" |
+| `processed_message` | Text | Teks setelah preprocessing | "todai" (stemmed) |
 
-Spam: 747 (13.4%)
-
-Fitur Dataset
-Fitur	Tipe Data	Deskripsi	Contoh
-label	Binary	Label kelas (0=ham, 1=spam)	0, 1
-message	Text	Isi pesan SMS asli	"How are you?"
-message_length	Integer	Panjang karakter pesan	20, 150
-word_count	Integer	Jumlah kata	5, 20
-cleaned_message	Text	Teks setelah cleaning	"how are you"
-processed_message	Text	Teks setelah preprocessing	"todai" (stemmed)
-
-Data Preparation
-Data Cleaning: Handling missing values, remove duplicates, label encoding.
-
-Text Preprocessing: Lowercase, remove URLs/Special Chars/Numbers, Stopwords removal (NLTK), Stemming (Porter Stemmer).
-
-Feature Engineering: Menambah fitur message_length dan word_count.
-
-🔧 Data Transformation:
-
-Traditional ML: TF-IDF Vectorization (Max features: 2000-3000, N-grams: 1,2).
-
-Deep Learning: Keras Tokenizer (Vocab: 5000), Padding (Max len: 100), Word Embedding (Dim: 128).
-
-Data Splitting: Train (70%), Validation (10%), Test (20%) dengan Stratified Split.
-
-🤖 Modeling
-Model 1: Naive Bayes (Baseline)
-Algoritma: Multinomial Naive Bayes
-
-Features: TF-IDF (3000 features)
-
-Hasil: Accuracy 98.20%
-
-Model 2: Random Forest (Advanced ML)
-Algoritma: Random Forest Classifier
-
-Params: n_estimators=100, max_depth=20
-
-Hasil: Accuracy 97.57%
-
-Model 3: LSTM (Deep Learning)
-Arsitektur: Bidirectional LSTM
-
-Structure: Embedding -> Bi-LSTM (64) -> Bi-LSTM (32) -> Dense layers
-
-Params: Optimizer Adam, Binary Crossentropy
-
-Hasil: Accuracy 98.93% 🏆
-
-🧪 Evaluation
-
-Model	Accuracy	Precision	Recall	F1-Score	Training Time
-Naive Bayes	0.9820	0.9683	0.9333	0.9505	~2s
-Random Forest	0.9757	0.9651	0.9150	0.9394	~30s
-LSTM 🏆	0.9893	0.9862	0.9477	0.9666	~10min
-
-🏁 Kesimpulan
-Model Terbaik: LSTM Deep Learning
-
-Alasan: Mampu memahami konteks urutan kata (sequential context) dan menangkap semantic similarity melalui Word Embeddings.
-
-Insight:
-
-Pesan Spam rata-rata 2x lebih panjang dari Ham.
-
-Kata kunci kuat: "free", "call", "win", "prize".
-
-Precision lebih diprioritaskan untuk menghindari False Positive (pesan penting masuk spam).
-
-🔮 Future Work
-Data: Tambah dataset (10k+) dan support Multi-language (Indonesia).
-
-Model: Implementasi Transformers (BERT/DistilBERT) dan Ensemble Methods.
-
-Deployment: REST API (FastAPI), Web App (Streamlit), Dockerize.
-
-Optimasi: Model quantization untuk mobile deployment.
-
-🔁 Reproducibility
-Requirements
-Python 3.10+
-
-TensorFlow, Scikit-learn, Pandas, NLTK (lihat requirements.txt)
-
-nstallation
-Bash
-
-# Clone repository
-git clone [https://github.com/muktialimu/sms-spam-classification.git](https://github.com/muktialimu/sms-spam-classification.git)
-cd sms-spam-classification
-
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# atau
-venv\Scripts\activate     # Windows
-
-# Install dependencies
-pip install -r requirements.txt
-
-Running the Project
-Opsi 1: Run Full Pipeline
-
-Bash
-
-python main.py
-Opsi 2: Run via Google Colab
-
-Buka notebooks/SMS_Spam_Classification_Complete.ipynb
-
-Upload ke Google Colab
-
-Runtime > Run All
+### Karakteristik Data
+* Imbalanced: Rasio Ham:Spam ≈ 6.5:1
+* No Missing Values: Dataset lengkap
+* No Duplicates: Tidak ada data duplikat
+* Language: English (UK/US)
+* Spam Patterns: Kata-kata seperti "free", "win", "call", "claim" dominan di spam
