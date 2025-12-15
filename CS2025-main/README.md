@@ -5,7 +5,7 @@ Klasifikasi SMS Spam dengan Deep Learning
 
 **👤 Informasi**
 * **Nama:** Mukti Ali, Mudlofar
-* **Repo:** [https://github.com/Mukti45/sms_spam_classification.git](https://github.com/Mukti45/sms_spam_classification.git)
+* **Repo:** [https://githu.com/Mukti45/sms_spam_classification.git](https://github.com/Mukti45/sms_spam_classification.git)
 * **Video:** [...]
 
 ---
