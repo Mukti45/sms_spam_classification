@@ -83,7 +83,7 @@ sms-spam-classification/
 ├── README.md
 └── main.py
 
-3. 📊 Dataset
+### 📊 Dataset
 Informasi Umum
 •	Sumber: UCI Machine Learning Repository 
 •	Jumlah Data: 5,574 pesan SMS 
