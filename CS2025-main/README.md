@@ -1,8 +1,5 @@
 📘 Judul Proyek
-
 Klasifikasi SMS Spam dengan Deep Learning
-
-
 👤 Informasi
 •	Nama: Mukti Ali Mudlofar
 •	Repo: https://github.com/Mukti45/sms_spam_classification.git 
@@ -30,10 +27,7 @@ Goals:
 4.	✅ Menghasilkan sistem yang reproducible dengan dokumentasi lengkap 
 5.	✅ Mengidentifikasi pola dan karakteristik pesan spam vs ham melalui EDA
 ________________________________________
-
 📁 Struktur Folder
-
-
 sms-spam-classification/
 │
 ├── data/                           # Dataset (gitignore)
@@ -77,9 +71,6 @@ sms-spam-classification/
 ├── requirements.txt                # Dependencies
 ├── README.md                       # Dokumentasi ini
 └── main.py                         # Script utama (run all) ________________________________________
-
-
-
 3. 📊 Dataset
 Informasi Umum
 •	Sumber: UCI Machine Learning Repository 
@@ -90,7 +81,6 @@ Informasi Umum
 •	Tipe: Text Data (Natural Language) 
 •	Format: TSV (Tab-Separated Values) 
 •	Size: 198.6 KB
-
 Fitur Dataset
 Fitur	Tipe Data	Deskripsi	Contoh
 label	Binary	Label kelas (0=ham, 1=spam)	0, 1
@@ -99,7 +89,6 @@ message_length	Integer	Panjang karakter pesan	20, 150
 word_count	Integer	Jumlah kata	5, 20
 cleaned_message	Text	Teks setelah cleaning	"how are you"
 processed_message	Text	Teks setelah preprocessing	"todai" (stemmed)
-
 Karakteristik Data
 •	Imbalanced: Rasio Ham:Spam ≈ 6.5:1 
 •	No Missing Values: Dataset lengkap 
@@ -108,12 +97,10 @@ Karakteristik Data
 •	Spam Patterns: Kata-kata seperti "free", "win", "call", "claim" dominan di spam
 ________________________________________
 4. 🔧 Data Preparation
-
 a)	Data Cleaning
 •	✅ Handling missing values (tidak ada) 
 •	✅ Remove duplicates (tidak ada) 
 •	✅ Label encoding (ham=0, spam=1)
-
 b)	Text Preprocessing
 •	✅ Lowercase: Standardisasi teks 
 •	✅ Remove URLs: Hapus link 
@@ -121,12 +108,10 @@ b)	Text Preprocessing
 •	✅ Remove numbers: Hapus angka 
 •	✅ Stopwords removal: Hapus kata umum (NLTK) 
 •	✅ Stemming: Porter Stemmer (reduce to root form)
-
 c)	Feature Engineering
 •	✅ message_length: Panjang karakter 
 •	✅ word_count: Jumlah kata 
 •	✅ processed_message: Hasil final preprocessing
-
 d)	Data Transformation
 Untuk Traditional ML (Naive Bayes & Random Forest):
 •	TF-IDF Vectorization 
@@ -136,7 +121,6 @@ Untuk Deep Learning (LSTM):
 •	Keras Tokenizer (vocab size: 5000) 
 •	Sequence padding (max length: 100) 
 •	Word embedding (dimension: 128)
-
 e)	Data Splitting
 Training set:   70% (3,902 samples)
 Validation set: 10% (557 samples)
@@ -144,7 +128,6 @@ Test set:       20% (1,115 samples)
 •	Stratified split (mempertahankan proporsi kelas) 
 •	Random state: 42 (reproducibility)
 ________________________________________
-
 5. 🤖 Modeling
 •	Model 1 – Baseline: Naive Bayes
 Algoritma: Multinomial Naive Bayes
@@ -301,5 +284,3 @@ Recommended:
 Tested on:
 •	Google Colab (Free Tier)
 •	Local: Intel i5, 16GB RAM
-
-
