@@ -1,49 +1,50 @@
+# 📘 Klasifikasi SMS Spam dengan Deep Learning
+
+👤 **Nama**: Mukti Ali Mudlofar  
+📦 **Repository**: https://github.com/Mukti45/sms_spam_classification.git  
+🎥 **Video**: [...]
+
+---
+
+## 🎯 Ringkasan Proyek
+
+Proyek ini mengimplementasikan sistem klasifikasi SMS spam otomatis menggunakan teknik  
+**Natural Language Processing (NLP)** dan **Deep Learning**.  
+Sistem dapat membedakan pesan spam dari pesan normal (ham) dengan akurasi tinggi.
+
+### 🔍 Highlights
+- ✅ Dataset: **5.574 SMS** dari UCI Machine Learning Repository
+- ✅ Model: Naive Bayes, Random Forest, LSTM Neural Network
+- ✅ Akurasi Terbaik: **98.93% (LSTM)**
+- ✅ Visualisasi EDA komprehensif
+- ✅ Complete reproducible pipeline
+
+---
+
+## 📄 Problem & Goals
+
+### ❓ Problem Statements
+1. **Deteksi Otomatis**  
+   Bagaimana membuat sistem yang dapat mendeteksi pesan spam secara otomatis dengan akurasi tinggi tanpa intervensi manual?
+2. **Kompleksitas Bahasa**  
+   Pesan spam menggunakan variasi kata, singkatan, dan pola bahasa kompleks yang sulit dideteksi rule-based system.
+3. **Imbalanced Data**  
+   Dataset memiliki lebih banyak ham dibanding spam.
+4. **Performa Model**  
+   Diperlukan perbandingan ML tradisional dan Deep Learning.
+
+### 🎯 Goals
+1. ✅ Akurasi minimal **95%**
+2. ✅ Membandingkan 3 pendekatan model
+3. ✅ Evaluasi dengan Accuracy, Precision, Recall, F1-Score
+4. ✅ Sistem reproducible dengan dokumentasi lengkap
+5. ✅ Identifikasi pola spam vs ham melalui EDA
+
+---
+
+## 📁 Struktur Folder
+
 ```text
-📘 Judul Proyek
-Klasifikasi SMS Spam dengan Deep Learning
-
-👤 Informasi
-Nama   : Mukti Ali Mudlofar
-Repo   : https://github.com/Mukti45/sms_spam_classification.git
-Video  : [...]
-
-==================================================
-
-1. 🎯 Ringkasan Proyek
-
-Proyek ini mengimplementasikan sistem klasifikasi SMS spam otomatis menggunakan
-Natural Language Processing (NLP) dan Deep Learning.
-
-Sistem dapat membedakan pesan spam dan ham dengan akurasi tinggi.
-
-Highlights:
-- Dataset: 5.574 SMS dari UCI Machine Learning Repository
-- Model: Naive Bayes, Random Forest, LSTM Neural Network
-- Akurasi terbaik: 98.93% (LSTM)
-- Visualisasi EDA komprehensif
-- Complete reproducible pipeline
-
-==================================================
-
-2. 📄 Problem & Goals
-
-Problem Statements:
-1. Deteksi otomatis pesan spam dengan akurasi tinggi
-2. Kompleksitas bahasa spam (singkatan & pola kompleks)
-3. Imbalanced dataset (ham > spam)
-4. Perbandingan ML tradisional vs Deep Learning
-
-Goals:
-1. Akurasi minimal 95%
-2. Membandingkan 3 pendekatan model
-3. Evaluasi dengan Accuracy, Precision, Recall, F1-Score
-4. Sistem reproducible & terdokumentasi
-5. Insight karakteristik spam vs ham melalui EDA
-
-==================================================
-
-3. 📁 Struktur Folder
-
 sms-spam-classification/
 ├── data/
 │   ├── raw/
