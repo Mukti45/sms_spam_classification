@@ -1,32 +1,43 @@
-📘 Judul Proyek
-Klasifikasi SMS Spam dengan Deep Learning
-👤 Informasi
-•	Nama: Mukti Ali Mudlofar
-•	Repo: https://github.com/Mukti45/sms_spam_classification.git 
-•	Video: [...]
-________________________________________
-1. 🎯 Ringkasan Proyek
-Proyek ini mengimplementasikan sistem klasifikasi SMS spam otomatis menggunakan teknik Natural Language Processing (NLP) dan Deep Learning. Sistem dapat membedakan pesan spam dari pesan normal (ham) dengan akurasi tinggi.
-Highlights:
-•	✅ Dataset: 5,574 SMS dari UCI Machine Learning Repository 
-•	✅ 3 Model: Naive Bayes, Random Forest, LSTM Neural Network 
-•	✅ Akurasi Terbaik: 98.93% (LSTM) 
-•	✅ 4 Visualisasi EDA komprehensif 
-•	✅ Complete reproducible pipeline
-________________________________________
-2. 📄 Problem & Goals
-Problem Statements:
-1.	Deteksi Otomatis: Bagaimana membuat sistem yang dapat mendeteksi pesan spam secara otomatis dengan akurasi tinggi tanpa intervensi manual? 
-2.	Kompleksitas Bahasa: Pesan spam sering menggunakan variasi kata, singkatan, dan pola bahasa yang kompleks yang sulit diidentifikasi dengan rule-based system. 
-3.	Imbalanced Data: Dataset SMS spam umumnya memiliki ketidakseimbangan kelas (lebih banyak ham daripada spam), yang dapat mempengaruhi performa model. 
-4.	Performa Model: Diperlukan perbandingan antara model tradisional machine learning dan deep learning untuk menentukan pendekatan terbaik.
-Goals:
-1.	✅ Membangun model ML untuk mengklasifikasikan SMS spam dengan akurasi minimal 95% 
-2.	✅ Mengukur dan membandingkan performa 3 pendekatan model (Baseline, Advanced, Deep Learning) 
-3.	✅ Menentukan model terbaik berdasarkan metrik evaluasi (Accuracy, Precision, Recall, F1-Score) 
-4.	✅ Menghasilkan sistem yang reproducible dengan dokumentasi lengkap 
-5.	✅ Mengidentifikasi pola dan karakteristik pesan spam vs ham melalui EDA
-________________________________________
+# Klasifikasi SMS Spam dengan Deep Learning
+
+👤 **Nama**: Mukti Ali Mudlofar  
+📦 **Repository**: https://github.com/Mukti45/sms_spam_classification.git  
+🎥 **Video**: [...]
+
+---
+
+## 🎯 Ringkasan Proyek
+
+Proyek ini mengimplementasikan sistem klasifikasi SMS spam otomatis menggunakan teknik  
+**Natural Language Processing (NLP)** dan **Deep Learning**.  
+Sistem dapat membedakan pesan spam dan ham dengan akurasi tinggi.
+
+### 🔍 Highlights
+- ✅ Dataset: **5.574 SMS** dari UCI Machine Learning Repository
+- ✅ Model: Naive Bayes, Random Forest, LSTM Neural Network
+- ✅ Akurasi terbaik: **98.93% (LSTM)**
+- ✅ Visualisasi EDA komprehensif
+- ✅ Complete reproducible pipeline
+
+---
+
+## 📄 Problem & Goals
+
+### ❓ Problem Statements
+1. Deteksi otomatis SMS spam dengan akurasi tinggi tanpa intervensi manual
+2. Kompleksitas bahasa spam (singkatan, variasi kata, pola kompleks)
+3. Imbalanced dataset (ham > spam)
+4. Perbandingan performa ML tradisional vs Deep Learning
+
+### 🎯 Goals
+- ✅ Akurasi minimal **95%**
+- ✅ Perbandingan 3 pendekatan model
+- ✅ Evaluasi menggunakan Accuracy, Precision, Recall, F1-Score
+- ✅ Sistem reproducible dengan dokumentasi lengkap
+- ✅ Insight karakteristik spam vs ham melalui EDA
+
+---
+
 ## 📁 Struktur Folder
 
 ```text
@@ -62,12 +73,12 @@ sms-spam-classification/
 │   │   ├── feature_importance_rf.png
 │   │   ├── lstm_training_history.png
 │   │   └── model_comparison.png
-│   ├── model_comparison.csv
+│   └── model_comparison.csv
 ├── .gitignore
 ├── requirements.txt
 ├── README.md
 └── main.py
-```
+
 3. 📊 Dataset
 Informasi Umum
 •	Sumber: UCI Machine Learning Repository 
