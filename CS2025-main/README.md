@@ -36,7 +36,7 @@ Markdown
 3. ✅ Menentukan model terbaik berdasarkan metrik evaluasi (Accuracy, Precision, Recall, F1-Score)
 4. ✅ Menghasilkan sistem yang reproducible dengan dokumentasi lengkap
 5. ✅ Mengidentifikasi pola dan karakteristik pesan spam vs ham melalui EDA
-📁 Struktur Folder
+📁 Struktur Folde
 Plaintext
 
 sms-spam-classification/
