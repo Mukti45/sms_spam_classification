@@ -89,7 +89,6 @@ sms-spam-classification/
 ├── .gitignore                      # Git ignore file
 ├── requirements.txt                # Dependencies
 ├── README.md                       # Dokumentasi ini
-└── main.py                         # Script utama (run all)
 ```
 
 ---
