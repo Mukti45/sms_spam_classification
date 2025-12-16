@@ -4,7 +4,7 @@
 
 - **Nama:** Mukti Ali Mudlofar
 - **Repo:** https://github.com/Mukti45/sms_spam_classification.git
-- **Video:** [...]
+- **Video:** https://youtu.be/yGt304frH7Y 
 
 ---
 
